@@ -11,12 +11,10 @@ configure :development do
 end
 
 
-
-
 # NOTE: ENV variables should be set directly in terminal for testing on localhost
 
 # Talk to Facebook
-get '/webhook' do
+post '/webhook' do
   params['hub.challenge'] if ENV["VERIFY_TOKEN"] == params['hub.verify_token']
 end
 
