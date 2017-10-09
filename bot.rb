@@ -20,14 +20,17 @@ Bot.on :message do |message|
   message.attachments # => [ { 'type' => 'image', 'payload' => { 'url' => 'https://www.example.com/1.jpg' } } ]
 
 #  message.reply(text: 'Hello, human!')
-    message.reply(
-  text: 'Human, who is your favorite bot?',
-  quick_replies: [
-    {
-      content_type: 'text',
-      title: 'You are!',
-      payload: 'HARMLESS'
+message.reply(
+  attachment: {
+    type: 'template',
+    payload: {
+      template_type: 'button',
+      text: 'Human, do you like me?',
+      buttons: [
+        { type: 'postback', title: 'Yes', payload: 'HARMLESS' },
+        { type: 'postback', title: 'No', payload: 'EXTERMINATE' }
+      ]
     }
-  ]
+  }
 )
 end
