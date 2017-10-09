@@ -11,6 +11,7 @@ include Facebook::Messenger
 #  message.reply(text: 'Hello!')
 #end
 
+
 Bot.on :message do |message|
   message.id          # => 'mid.1457764197618:41d102a3e1ae206a38'
   message.sender      # => { 'id' => '1008372609250235' }
@@ -42,6 +43,6 @@ Bot.on :postback do |postback|
   postback.payload   # => 'EXTERMINATE'
 
   if postback.payload == 'EXTERMINATE'
-    puts "you are #{postback.recipient} marked for extermination"
+    puts "you are marked for extermination!"
   end
 end
