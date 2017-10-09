@@ -19,5 +19,15 @@ Bot.on :message do |message|
   message.text        # => 'Hello, bot!'
   message.attachments # => [ { 'type' => 'image', 'payload' => { 'url' => 'https://www.example.com/1.jpg' } } ]
 
-  message.reply(text: 'Hello, human!')
+#  message.reply(text: 'Hello, human!')
+    message.reply(
+  text: 'Human, who is your favorite bot?',
+  quick_replies: [
+    {
+      content_type: 'text',
+      title: 'You are!',
+      payload: 'HARMLESS'
+    }
+  ]
+)
 end
