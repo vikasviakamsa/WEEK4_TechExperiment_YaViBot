@@ -42,7 +42,7 @@ Bot.on :postback do |postback|
   postback.sent_at   # => 2016-04-22 21:30:36 +0200
   postback.payload   # => 'EXTERMINATE'
 
-  if postback.payload == 'EXTERMINATE'
+  if postback.title == 'No'
     puts "you are marked for extermination!"
   end
 end
