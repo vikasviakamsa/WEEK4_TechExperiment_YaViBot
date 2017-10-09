@@ -11,39 +11,13 @@ include Facebook::Messenger
 #  message.reply(text: 'Hello!')
 #end
 
-    Facebook::Messenger::Thread.set({
-      setting_type: 'call_to_actions',
-      thread_state: 'existing_thread',
-      call_to_actions: [
-        {
-          type: 'postback',
-          title: 'Coordinates lookup',
-          payload: 'COORDINATES'
-        },
-        {
-          type: 'postback',
-          title: 'Postal address lookup',
-          payload: 'FULL_ADDRESS'
-        },
-        {
-          type: 'postback',
-          title: 'Location lookup',
-          payload: 'LOCATION'
-        }
-      ]
-    }, access_token: ENV['ACCESS_TOKEN'])
+Bot.on :message do |message|
+  message.id          # => 'mid.1457764197618:41d102a3e1ae206a38'
+  message.sender      # => { 'id' => '1008372609250235' }
+  message.seq         # => 73
+  message.sent_at     # => 2016-04-22 21:30:36 +0200
+  message.text        # => 'Hello, bot!'
+  message.attachments # => [ { 'type' => 'image', 'payload' => { 'url' => 'https://www.example.com/1.jpg' } } ]
 
-Bot.on :postback do |postback|
-  sender_id = postback.sender['id']
-  case postback.payload
-  when 'START' then show_replies_menu(postback.sender['id'], MENU_REPLIES)
-  when 'COORDINATES'
-    say(sender_id, IDIOMS[:ask_location], TYPE_LOCATION)
-    show_coordinates(sender_id)
-  when 'FULL_ADDRESS'
-    say(sender_id, IDIOMS[:ask_location], TYPE_LOCATION)
-    show_full_address(sender_id)
-  when 'LOCATION'
-    lookup_location(sender_id)
-  end
+  message.reply(text: 'Hello, human!')
 end
