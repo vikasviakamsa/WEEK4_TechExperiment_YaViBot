@@ -5,14 +5,14 @@ Bot.on :message do |message|
   message.reply(text: 'Hello!')
 end
 
-Bot.deliver({
-  recipient: {
-    id: '45123'
-  },
-  message: {
-    text: 'Human?'
+message.reply(
+  attachment: {
+    type: 'image',
+    payload: {
+      url: 'http://sky.net/visual-aids-for-stupid-organisms/pig.jpg'
+    }
   }
-}, access_token: ENV['ACCESS_TOKEN'])
+)
 
 
 
