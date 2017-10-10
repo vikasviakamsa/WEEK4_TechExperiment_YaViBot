@@ -3,7 +3,14 @@ include Facebook::Messenger
 
 
 Bot.on :message do |message|
-  message.reply(text: 'Hello, human!')
+  message.reply(
+  attachment: {
+    type: 'image',
+    payload: {
+      url: 'http://sky.net/visual-aids-for-stupid-organisms/pig.jpg'
+    }
+  }
+)
 end
 
 
