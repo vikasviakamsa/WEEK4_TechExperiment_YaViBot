@@ -2,10 +2,17 @@ require 'facebook/messenger'
 include Facebook::Messenger
 
 Bot.on :message do |message|
-  message.reply(text: 'Hello, human!')
+  message.reply(text: 'Hello!')
 end
 
-
+Bot.deliver({
+  recipient: {
+    id: '45123'
+  },
+  message: {
+    text: 'Human?'
+  }
+}, access_token: ENV['ACCESS_TOKEN'])
 
 
 
