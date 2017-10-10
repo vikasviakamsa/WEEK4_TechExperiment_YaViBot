@@ -1,18 +1,22 @@
 require 'facebook/messenger'
 include Facebook::Messenger
 
+# NB: Subcribe your bot to your page here.
+Facebook::Messenger::Subscriptions.subscribe(access_token: ENV['ACCESS_TOKEN'])
+
+
+#enabling BotProfile file in Subparts
+Subparts::BotProfile.enable
+
+
+
+
+
+
 Bot.on :message do |message|
   message.reply(text: 'Hello!')
 end
 
-message.reply(
-  attachment: {
-    type: 'image',
-    payload: {
-      url: 'http://sky.net/visual-aids-for-stupid-organisms/pig.jpg'
-    }
-  }
-)
 
 
 
