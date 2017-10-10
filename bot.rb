@@ -23,7 +23,7 @@ end
 
 Bot.on :postback do |postback|
   if postback.title == 'No'
-    puts "Human #{postback.recipient} marked for extermination"
+    puts "Human marked for extermination"
   end
 end
 
