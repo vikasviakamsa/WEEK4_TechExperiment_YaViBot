@@ -22,7 +22,7 @@ message.reply(
 end
 
 Bot.on :postback do |postback|
-  if postback.payload == 'EXTERMINATE'
+  if postback.title == 'No'
     puts "Human #{postback.recipient} marked for extermination"
   end
 end
