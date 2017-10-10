@@ -5,14 +5,6 @@ include Facebook::Messenger
 Facebook::Messenger::Subscriptions.subscribe(access_token: ENV['ACCESS_TOKEN'])
 
 
-#enabling BotProfile file in Subparts
-Subparts::BotProfile.enable
-
-
-
-
-
-
 Bot.on :message do |message|
   message.reply(text: 'Hello!')
 end
