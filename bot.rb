@@ -2,9 +2,6 @@ require 'facebook/messenger'
 include Facebook::Messenger
 
 
-# NB: Subcribe your bot to your page here.
-Facebook::Messenger::Subscriptions.subscribe(access_token: ENV['ACCESS_TOKEN'])
-
 Bot.on :message do |message|
   message.reply(text: 'Hello, human!')
 end
