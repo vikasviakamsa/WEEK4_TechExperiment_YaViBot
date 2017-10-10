@@ -2,8 +2,17 @@ require 'facebook/messenger'
 include Facebook::Messenger
 
 
+
+
 Bot.on :message do |message|
-  message.reply(text: 'Hello!')
+  message.reply(
+  attachment: {
+    type: 'image',
+    payload: {
+      url: 'http://sky.net/visual-aids-for-stupid-organisms/pig.jpg'
+    }
+  }
+)
 end
 
 
