@@ -3,13 +3,15 @@ include Facebook::Messenger
 
 
 Bot.on :message do |message|
-  message.reply(
-  attachment: {
-    type: 'image',
-    payload: {
-      url: 'http://sky.net/visual-aids-for-stupid-organisms/pig.jpg'
+ message.reply(
+  text: 'Human, who is your favorite bot?',
+  quick_replies: [
+    {
+      content_type: 'text',
+      title: 'You are!',
+      payload: 'HARMLESS'
     }
-  }
+  ]
 )
 end
 
