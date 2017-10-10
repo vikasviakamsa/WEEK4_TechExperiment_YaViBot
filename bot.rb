@@ -25,7 +25,6 @@ Bot.on :postback do |postback|
   if postback.title == 'No'
     puts "Human marked for extermination"
   end
-end
 
 
 
