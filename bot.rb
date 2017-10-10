@@ -6,14 +6,7 @@ include Facebook::Messenger
 Facebook::Messenger::Subscriptions.subscribe(access_token: ENV['ACCESS_TOKEN'])
 
 Bot.on :message do |message|
-  message.reply(
-  attachment: {
-    type: 'image',
-    payload: {
-      url: 'http://sky.net/visual-aids-for-stupid-organisms/pig.jpg'
-    }
-  }
-)
+  message.reply(text: 'Hello, human!')
 end
 
 
